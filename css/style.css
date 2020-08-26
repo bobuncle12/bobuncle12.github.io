@@ -143,3 +143,12 @@ body{
 	margin-top:20px;
 	margin:20px 0;
 }
+
+.script{
+	text-align: center;
+	margin:0 auto;
+}
+
+.highlighted{
+	background-color: #f5aa14;
+}
