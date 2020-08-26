@@ -1,0 +1,708 @@
+
+-- Objects
+
+local ScreenGui = Instance.new("ScreenGui")
+local Topframe = Instance.new("Frame")
+local Mainframe = Instance.new("Frame")
+local InputBox = Instance.new("TextBox")
+local KillEnemies = Instance.new("TextButton")
+local TazeEnemies = Instance.new("TextButton")
+local GiveEveryItem = Instance.new("TextButton")
+local RemoveDoors = Instance.new("TextButton")
+local ChangeSpeed = Instance.new("TextButton")
+local ChangeJumpHeight = Instance.new("TextButton")
+local Goto = Instance.new("TextButton")
+local Teleports = Instance.new("TextButton")
+local EquipItem = Instance.new("TextButton")
+local Clip = Instance.new("TextButton")
+local Noclip = Instance.new("TextButton")
+local PrintItems = Instance.new("TextButton")
+local PrintWS = Instance.new("TextButton")
+local DeleteWspart = Instance.new("TextButton")
+local Creds = Instance.new("TextLabel")
+local Close = Instance.new("TextButton")
+local Minimize = Instance.new("TextButton")
+local Help = Instance.new("TextButton")
+local Creds_2 = Instance.new("TextLabel")
+local HelpFrame = Instance.new("Frame")
+local HelpInfo = Instance.new("TextLabel")
+local TeleportsFrame = Instance.new("Frame")
+local TeleportsScrollingFrame = Instance.new("ScrollingFrame")
+local CellsTP = Instance.new("TextButton")
+local VentsTP = Instance.new("TextButton")
+local HelipadTP = Instance.new("TextButton")
+local JailtopTP = Instance.new("TextButton")
+local CourtyardTP = Instance.new("TextButton")
+local LunchroomTP = Instance.new("TextButton")
+local KitchenTP = Instance.new("TextButton")
+local SecurityRoomTP = Instance.new("TextButton")
+local CakeTP = Instance.new("TextButton")
+local PrisonFrontTP = Instance.new("TextButton")
+local ATVTP = Instance.new("TextButton")
+local WatchTowerTP = Instance.new("TextButton")
+local WatchTower2TP = Instance.new("TextButton")
+local WaterfallTP = Instance.new("TextButton")
+local CarSpawnerTP = Instance.new("TextButton")
+local MercenaryShedTP = Instance.new("TextButton")
+
+-- Properties
+
+ScreenGui.Parent = game.CoreGui
+
+Topframe.Name = "Topframe"
+Topframe.Parent = ScreenGui
+Topframe.BackgroundColor3 = Color3.new(0.105882, 0.105882, 0.105882)
+Topframe.BorderColor3 = Color3.new(0, 0, 0)
+Topframe.Position = UDim2.new(0.315838814, 0, 0.147286832, 0)
+Topframe.Size = UDim2.new(0, 253, 0, 14)
+Topframe.Active= true
+Topframe.Draggable = true
+
+Mainframe.Name = "Mainframe"
+Mainframe.Parent = Topframe
+Mainframe.BackgroundColor3 = Color3.new(0.415686, 0.415686, 0.415686)
+Mainframe.BorderColor3 = Color3.new(0, 0, 0)
+Mainframe.Position = UDim2.new(0, 0, 1, 0)
+Mainframe.Size = UDim2.new(0, 253, 0, 121)
+
+InputBox.Name = "InputBox"
+InputBox.Parent = Mainframe
+InputBox.BackgroundColor3 = Color3.new(0.784314, 0.784314, 0.784314)
+InputBox.BorderColor3 = Color3.new(0, 0, 0)
+InputBox.Position = UDim2.new(0.667984188, 0, 0.05785124, 0)
+InputBox.Size = UDim2.new(0, 76, 0, 17)
+InputBox.Font = Enum.Font.SourceSans
+InputBox.Text = "Input"
+InputBox.TextColor3 = Color3.new(0, 0, 0)
+InputBox.TextScaled = true
+InputBox.TextSize = 14
+InputBox.TextWrapped = true
+
+KillEnemies.Name = "KillEnemies"
+KillEnemies.Parent = Mainframe
+KillEnemies.BackgroundColor3 = Color3.new(0.639216, 0.639216, 0.639216)
+KillEnemies.BorderColor3 = Color3.new(0, 0, 0)
+KillEnemies.Position = UDim2.new(0.0269709229, 0, 0.05785124, 0)
+KillEnemies.Size = UDim2.new(0, 76, 0, 17)
+KillEnemies.Font = Enum.Font.SourceSans
+KillEnemies.Text = "Kill Enemies"
+KillEnemies.TextColor3 = Color3.new(0, 0, 0)
+KillEnemies.TextSize = 14
+KillEnemies.MouseButton1Click:connect(function()
+	for _, v in pairs(game.Players:GetChildren()) do
+game.Workspace.resources.RemoteEvent:FireServer("dealDamage", v.Character.Humanoid, 100) --keep in mind friendly fire is off
+end
+end)
+
+
+TazeEnemies.Name = "TazeEnemies"
+TazeEnemies.Parent = Mainframe
+TazeEnemies.BackgroundColor3 = Color3.new(0.639216, 0.639216, 0.639216)
+TazeEnemies.BorderColor3 = Color3.new(0, 0, 0)
+TazeEnemies.Position = UDim2.new(0.0269708633, 0, 0.247933939, 0)
+TazeEnemies.Size = UDim2.new(0, 76, 0, 17)
+TazeEnemies.Font = Enum.Font.SourceSans
+TazeEnemies.Text = "Taze Enemies"
+TazeEnemies.TextColor3 = Color3.new(0, 0, 0)
+TazeEnemies.TextSize = 14
+TazeEnemies.MouseButton1Click:connect(function()
+	for _, v in pairs(game.Players:GetChildren()) do
+game.Workspace.resources.RemoteEvent:FireServer("tase", v) --keep in mind friendly fire is off
+end
+end)
+
+GiveEveryItem.Name = "GiveEveryItem"
+GiveEveryItem.Parent = Mainframe
+GiveEveryItem.BackgroundColor3 = Color3.new(0.639216, 0.639216, 0.639216)
+GiveEveryItem.BorderColor3 = Color3.new(0, 0, 0)
+GiveEveryItem.Position = UDim2.new(0.0269708633, 0, 0.429752022, 0)
+GiveEveryItem.Size = UDim2.new(0, 76, 0, 17)
+GiveEveryItem.Font = Enum.Font.SourceSans
+GiveEveryItem.Text = "Quick Items"
+GiveEveryItem.TextColor3 = Color3.new(0, 0, 0)
+GiveEveryItem.TextSize = 14
+GiveEveryItem.MouseButton1Click:connect(function()
+	game.Workspace.resources.RemoteFunction:InvokeServer("giveItem", "M98B")
+game.Workspace.resources.RemoteFunction:InvokeServer("giveItem", "Revolver")
+game.Workspace.resources.RemoteFunction:InvokeServer("giveItem", "UMP-45")
+game.Workspace.resources.RemoteFunction:InvokeServer("giveItem", "Parachute")
+game.Workspace.resources.RemoteFunction:InvokeServer("giveItem", "ACR")
+game.Workspace.resources.RemoteFunction:InvokeServer("giveItem", "M60")
+game.Workspace.resources.RemoteFunction:InvokeServer("giveItem", "add more if u find")
+game.Workspace.resources.RemoteFunction:InvokeServer("giveItem", "Fake ID Card")
+end)
+
+RemoveDoors.Name = "RemoveDoors"
+RemoveDoors.Parent = Mainframe
+RemoveDoors.BackgroundColor3 = Color3.new(0.639216, 0.639216, 0.639216)
+RemoveDoors.BorderColor3 = Color3.new(0, 0, 0)
+RemoveDoors.Position = UDim2.new(0.34910512, 0, 0.0578511953, 0)
+RemoveDoors.Size = UDim2.new(0, 76, 0, 17)
+RemoveDoors.Font = Enum.Font.SourceSans
+RemoveDoors.Text = "Remove Doors"
+RemoveDoors.TextColor3 = Color3.new(0, 0, 0)
+RemoveDoors.TextSize = 14
+RemoveDoors.MouseButton1Click:connect(function()
+	game.Workspace.AllDoors:Destroy()
+end)
+
+ChangeSpeed.Name = "ChangeSpeed"
+ChangeSpeed.Parent = Mainframe
+ChangeSpeed.BackgroundColor3 = Color3.new(0.639216, 0.639216, 0.639216)
+ChangeSpeed.BorderColor3 = Color3.new(0, 0, 0)
+ChangeSpeed.Position = UDim2.new(0.347128868, 0, 0.247933865, 0)
+ChangeSpeed.Size = UDim2.new(0, 76, 0, 17)
+ChangeSpeed.Font = Enum.Font.SourceSans
+ChangeSpeed.Text = "Walk Speed"
+ChangeSpeed.TextColor3 = Color3.new(0, 0, 0)
+ChangeSpeed.TextSize = 14
+ChangeSpeed.MouseButton1Click:connect(function()
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = (InputBox.Text)
+end)
+
+ChangeJumpHeight.Name = "ChangeJumpHeight"
+ChangeJumpHeight.Parent = Mainframe
+ChangeJumpHeight.BackgroundColor3 = Color3.new(0.639216, 0.639216, 0.639216)
+ChangeJumpHeight.BorderColor3 = Color3.new(0, 0, 0)
+ChangeJumpHeight.Position = UDim2.new(0.349722624, 0, 0.429752052, 0)
+ChangeJumpHeight.Size = UDim2.new(0, 76, 0, 17)
+ChangeJumpHeight.Font = Enum.Font.SourceSans
+ChangeJumpHeight.Text = "Jump Height"
+ChangeJumpHeight.TextColor3 = Color3.new(0, 0, 0)
+ChangeJumpHeight.TextSize = 14
+ChangeJumpHeight.MouseButton1Click:connect(function()
+	game.Players.LocalPlayer.Character.Humanoid.JumpPower = (InputBox.Text)
+end)
+
+
+Goto.Name = "Goto"
+Goto.Parent = Mainframe
+Goto.BackgroundColor3 = Color3.new(0.639216, 0.639216, 0.639216)
+Goto.BorderColor3 = Color3.new(0, 0, 0)
+Goto.Position = UDim2.new(0.347746134, 0, 0.619834721, 0)
+Goto.Size = UDim2.new(0, 76, 0, 17)
+Goto.Font = Enum.Font.SourceSans
+Goto.Text = "Tp to player"
+Goto.TextColor3 = Color3.new(0, 0, 0)
+Goto.TextSize = 14
+Goto.MouseButton1Click:Connect(function()
+	getplr = function(plxr)
+	for i, v in pairs(game.Players:GetPlayers()) do
+		if string.find(v.Name, plxr) then
+			return v
+		elseif v.Name:sub(1, plxr:len()):lower()== plxr:lower() then
+			return v
+		end
+	end
+end
+local plr = getplr(InputBox.Text)
+	game.Players.LocalPlayer.Character:MoveTo(plr.Character.Torso.Position)
+end)
+
+Teleports.Name = "Teleports"
+Teleports.Parent = Mainframe
+Teleports.BackgroundColor3 = Color3.new(0.639216, 0.639216, 0.639216)
+Teleports.BorderColor3 = Color3.new(0, 0, 0)
+Teleports.Position = UDim2.new(0.667904377, 0, 0.429752052, 0)
+Teleports.Size = UDim2.new(0, 76, 0, 17)
+Teleports.Font = Enum.Font.SourceSans
+Teleports.Text = "Teleports"
+Teleports.TextColor3 = Color3.new(0, 0, 0)
+Teleports.TextSize = 14
+Teleports.MouseButton1Click:Connect(function()
+
+    if TeleportsFrame.Visible == false then
+        TeleportsFrame.Visible = true
+    else
+        TeleportsFrame.Visible = false
+    end
+end)
+
+EquipItem.Name = "EquipItem"
+EquipItem.Parent = Mainframe
+EquipItem.BackgroundColor3 = Color3.new(0.639216, 0.639216, 0.639216)
+EquipItem.BorderColor3 = Color3.new(0, 0, 0)
+EquipItem.Position = UDim2.new(0.347746134, 0, 0.809917331, 0)
+EquipItem.Size = UDim2.new(0, 76, 0, 17)
+EquipItem.Font = Enum.Font.SourceSans
+EquipItem.Text = "Equip Item"
+EquipItem.TextColor3 = Color3.new(0, 0, 0)
+EquipItem.TextSize = 14
+EquipItem.MouseButton1Click:Connect(function()
+	game.Workspace.resources.RemoteFunction:InvokeServer("giveItem", (InputBox.Text))
+end)
+
+Clip.Name = "Clip"
+Clip.Parent = Mainframe
+Clip.BackgroundColor3 = Color3.new(0.639216, 0.639216, 0.639216)
+Clip.BorderColor3 = Color3.new(0, 0, 0)
+Clip.Position = UDim2.new(0.027588129, 0, 0.809917331, 0)
+Clip.Size = UDim2.new(0, 76, 0, 17)
+Clip.Font = Enum.Font.SourceSans
+Clip.Text = "Clip"
+Clip.TextColor3 = Color3.new(0, 0, 0)
+Clip.TextSize = 14
+Clip.MouseButton1Click:Connect(function()
+	local noclip = true char = game.Players.LocalPlayer.Character while true do if noclip == true then for _,v in pairs(char:children()) do pcall(function() if v.className == "Part" then v.CanCollide = true elseif v.ClassName == "Model" then v.Head.CanCollide = true end end) end end game:service("RunService").Stepped:wait() end
+end)
+
+Noclip.Name = "Noclip"
+Noclip.Parent = Mainframe
+Noclip.BackgroundColor3 = Color3.new(0.639216, 0.639216, 0.639216)
+Noclip.BorderColor3 = Color3.new(0, 0, 0)
+Noclip.Position = UDim2.new(0.0276706219, 0, 0.61983484, 0)
+Noclip.Size = UDim2.new(0, 76, 0, 17)
+Noclip.Font = Enum.Font.SourceSans
+Noclip.Text = "Noclip"
+Noclip.TextColor3 = Color3.new(0, 0, 0)
+Noclip.TextSize = 14
+Noclip.MouseButton1Click:Connect(function()
+	local noclip = true char = game.Players.LocalPlayer.Character while true do if noclip == true then for _,v in pairs(char:children()) do pcall(function() if v.className == "Part" then v.CanCollide = false elseif v.ClassName == "Model" then v.Head.CanCollide = false end end) end end game:service("RunService").Stepped:wait() end
+end)
+
+PrintItems.Name = "PrintItems"
+PrintItems.Parent = Mainframe
+PrintItems.BackgroundColor3 = Color3.new(0.639216, 0.639216, 0.639216)
+PrintItems.BorderColor3 = Color3.new(0, 0, 0)
+PrintItems.Position = UDim2.new(0.667904377, 0, 0.619834661, 0)
+PrintItems.Size = UDim2.new(0, 76, 0, 17)
+PrintItems.Font = Enum.Font.SourceSans
+PrintItems.Text = "Print Items"
+PrintItems.TextColor3 = Color3.new(0, 0, 0)
+PrintItems.TextSize = 14
+PrintItems.MouseButton1Click:Connect(function()
+	print("M1014")
+	print("SPAS-12")
+	print("Makrov")
+	print("Dragunov")
+	print("Taser")
+	print("Ham Sandwich")
+	print("Pancakes")
+	print("Steak")
+	print("Punch")
+	print("Handcuffs")
+	print("Shank")
+	print("Hammer")
+	print("Guitar")
+	print("Fake ID Card")
+	print("ACR")
+	print("L86A2")
+	print("M60")
+	print("Beretta M9")
+	print("UMP-45")
+	print("AK47-U")
+	print("Revolver")
+	print("Minigun")
+	print("M16")
+	print("S&W 638")
+	print("M14")
+	print("AK47")
+	print("M98B")
+end)
+
+DeleteWspart.Name = "DeleteWspart"
+DeleteWspart.Parent = Mainframe
+DeleteWspart.BackgroundColor3 = Color3.new(0.639216, 0.639216, 0.639216)
+DeleteWspart.BorderColor3 = Color3.new(0, 0, 0)
+DeleteWspart.Position = UDim2.new(0.667286992, 0, 0.247933865, 0)
+DeleteWspart.Size = UDim2.new(0, 76, 0, 17)
+DeleteWspart.Font = Enum.Font.SourceSans
+DeleteWspart.Text = "E To Fly"
+DeleteWspart.TextColor3 = Color3.new(0, 0, 0)
+DeleteWspart.TextSize = 14
+DeleteWspart.MouseButton1Click:Connect(function()
+	 repeat wait()
+   until game.Players.LocalPlayer and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:findFirstChild("Torso") and game.Players.LocalPlayer.Character:findFirstChild("Humanoid")
+local mouse = game.Players.LocalPlayer:GetMouse()
+repeat wait() until mouse
+local plr = game.Players.LocalPlayer
+local torso = plr.Character.Torso
+local flying = true
+local deb = true
+local ctrl = {f = 0, b = 0, l = 0, r = 0}
+local lastctrl = {f = 0, b = 0, l = 0, r = 0}
+local maxspeed = 50
+local speed = 0
+
+function Fly()
+local bg = Instance.new("BodyGyro", torso)
+bg.P = 9e4
+bg.maxTorque = Vector3.new(9e9, 9e9, 9e9)
+bg.cframe = torso.CFrame
+local bv = Instance.new("BodyVelocity", torso)
+bv.velocity = Vector3.new(0,0.1,0)
+bv.maxForce = Vector3.new(9e9, 9e9, 9e9)
+repeat wait()
+plr.Character.Humanoid.PlatformStand = true
+if ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0 then
+speed = speed+.5+(speed/maxspeed)
+if speed > maxspeed then
+speed = maxspeed
+end
+elseif not (ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0) and speed ~= 0 then
+speed = speed-1
+if speed < 0 then
+speed = 0
+end
+end
+if (ctrl.l + ctrl.r) ~= 0 or (ctrl.f + ctrl.b) ~= 0 then
+bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (ctrl.f+ctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(ctrl.l+ctrl.r,(ctrl.f+ctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
+lastctrl = {f = ctrl.f, b = ctrl.b, l = ctrl.l, r = ctrl.r}
+elseif (ctrl.l + ctrl.r) == 0 and (ctrl.f + ctrl.b) == 0 and speed ~= 0 then
+bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lastctrl.f+lastctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lastctrl.l+lastctrl.r,(lastctrl.f+lastctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
+else
+bv.velocity = Vector3.new(0,0.1,0)
+end
+bg.cframe = game.Workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((ctrl.f+ctrl.b)*50*speed/maxspeed),0,0)
+until not flying
+ctrl = {f = 0, b = 0, l = 0, r = 0}
+lastctrl = {f = 0, b = 0, l = 0, r = 0}
+speed = 0
+bg:Destroy()
+bv:Destroy()
+plr.Character.Humanoid.PlatformStand = false
+end
+mouse.KeyDown:connect(function(key)
+if key:lower() == "e" then
+if flying then flying = false
+else
+flying = true
+Fly()
+end
+elseif key:lower() == "w" then
+ctrl.f = 1
+elseif key:lower() == "s" then
+ctrl.b = -1
+elseif key:lower() == "a" then
+ctrl.l = -1
+elseif key:lower() == "d" then
+ctrl.r = 1
+end
+end)
+mouse.KeyUp:connect(function(key)
+if key:lower() == "w" then
+ctrl.f = 0
+elseif key:lower() == "s" then
+ctrl.b = 0
+elseif key:lower() == "a" then
+ctrl.l = 0
+elseif key:lower() == "d" then
+ctrl.r = 0
+end
+end)
+Fly()
+end)
+
+Creds.Name = "Creds"
+Creds.Parent = Topframe
+Creds.BackgroundColor3 = Color3.new(0.105882, 0.105882, 0.105882)
+Creds.BorderColor3 = Color3.new(0, 0, 0)
+Creds.BorderSizePixel = 0
+Creds.Size = UDim2.new(0, 90, 0, 9)
+Creds.Font = Enum.Font.SourceSans
+Creds.Text = "Psykek#3180"
+Creds.TextColor3 = Color3.new(1, 0.670588, 0.0117647)
+Creds.TextSize = 14
+
+Close.Name = "Close"
+Close.Parent = Topframe
+Close.BackgroundColor3 = Color3.new(0.105882, 0.105882, 0.105882)
+Close.BorderColor3 = Color3.new(0, 0, 0)
+Close.BorderSizePixel = 0
+Close.Position = UDim2.new(0.958144546, 0, -0.107142895, 0)
+Close.Size = UDim2.new(0, 11, 0, 12)
+Close.Font = Enum.Font.SourceSans
+Close.Text = "X"
+Close.TextColor3 = Color3.new(1, 1, 1)
+Close.TextSize = 14	
+Close.MouseButton1Click:Connect(function()
+
+    if Topframe.Visible == false then
+        Topframe.Visible = false
+    else
+        Topframe.Visible = false
+    end
+
+end)
+
+Close.MouseButton1Click:Connect(function()
+
+    if TeleportsFrame.Visible == false then
+        TeleportsFrame.Visible = false
+    else
+        TeleportsFrame.Visible = false
+    end
+
+end)	
+
+Minimize.Name = "Minimize"
+Minimize.Parent = Topframe
+Minimize.BackgroundColor3 = Color3.new(0.105882, 0.105882, 0.105882)
+Minimize.BorderColor3 = Color3.new(0, 0, 0)
+Minimize.BorderSizePixel = 0
+Minimize.Position = UDim2.new(0.924359024, 0, -0.107142895, 0)
+Minimize.Size = UDim2.new(0, 11, 0, 12)
+Minimize.Font = Enum.Font.SourceSans
+Minimize.Text = "-"
+Minimize.TextColor3 = Color3.new(1, 1, 1)
+Minimize.TextSize = 14
+Minimize.MouseButton1Click:Connect(function()
+
+    if Mainframe.Visible == false then
+        Mainframe.Visible = true
+    else
+        Mainframe.Visible = false
+    end
+
+end)
+
+Minimize.MouseButton1Click:Connect(function()
+
+    if TeleportsFrame.Visible == false then
+        TeleportsFrame.Visible = false
+    else
+        TeleportsFrame.Visible = false
+    end
+
+end)
+
+TeleportsFrame.Name = "TeleportsFrame"
+TeleportsFrame.Parent = ScreenGui
+TeleportsFrame.BackgroundColor3 = Color3.new(0.415686, 0.415686, 0.415686)
+TeleportsFrame.BorderColor3 = Color3.new(0, 0, 0)
+TeleportsFrame.Position = UDim2.new(0.859418929, 0, 0.268410861, 0)
+TeleportsFrame.Size = UDim2.new(0, 150, 0, 239)
+TeleportsFrame.Active = true
+TeleportsFrame.Draggable = true
+TeleportsFrame.Visible = false
+
+TeleportsScrollingFrame.Name = "TeleportsScrollingFrame"
+TeleportsScrollingFrame.Parent = TeleportsFrame
+TeleportsScrollingFrame.BackgroundColor3 = Color3.new(0.623529, 0.623529, 0.623529)
+TeleportsScrollingFrame.Position = UDim2.new(0.0399999991, 0, 0.0292887036, 0)
+TeleportsScrollingFrame.Size = UDim2.new(0, 137, 0, 224)
+TeleportsScrollingFrame.ScrollBarThickness = 1
+
+CellsTP.Name = "CellsTP"
+CellsTP.Parent = TeleportsScrollingFrame
+CellsTP.BackgroundColor3 = Color3.new(0.552941, 0.552941, 0.552941)
+CellsTP.BorderColor3 = Color3.new(0, 0, 0)
+CellsTP.Position = UDim2.new(0.0510948896, 0, 0.0105485236, 0)
+CellsTP.Size = UDim2.new(0, 122, 0, 18)
+CellsTP.Font = Enum.Font.SourceSans
+CellsTP.Text = "Cells"
+CellsTP.TextColor3 = Color3.new(0, 0, 0)
+CellsTP.TextSize = 14
+CellsTP.MouseButton1Click:Connect(function()
+	game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-2.1252234, 3.99408817, 38.6809654))
+end)
+
+VentsTP.Name = "VentsTP"
+VentsTP.Parent = TeleportsScrollingFrame
+VentsTP.BackgroundColor3 = Color3.new(0.552941, 0.552941, 0.552941)
+VentsTP.BorderColor3 = Color3.new(0, 0, 0)
+VentsTP.Position = UDim2.new(0.0510948896, 0, 0.0485232063, 0)
+VentsTP.Size = UDim2.new(0, 122, 0, 18)
+VentsTP.Font = Enum.Font.SourceSans
+VentsTP.Text = "Vents"
+VentsTP.TextColor3 = Color3.new(0, 0, 0)
+VentsTP.TextSize = 14
+VentsTP.MouseButton1Click:Connect(function()
+	game.Players.LocalPlayer.Character:MoveTo(Vector3.new(45.8967972, 17, 88.6420212))
+end)
+
+HelipadTP.Name = "HelipadTP"
+HelipadTP.Parent = TeleportsScrollingFrame
+HelipadTP.BackgroundColor3 = Color3.new(0.552941, 0.552941, 0.552941)
+HelipadTP.BorderColor3 = Color3.new(0, 0, 0)
+HelipadTP.Position = UDim2.new(0.0510948896, 0, 0.086497888, 0)
+HelipadTP.Size = UDim2.new(0, 122, 0, 18)
+HelipadTP.Font = Enum.Font.SourceSans
+HelipadTP.Text = "Helipad"
+HelipadTP.TextColor3 = Color3.new(0, 0, 0)
+HelipadTP.TextSize = 14
+HelipadTP.MouseButton1Click:Connect(function()
+	game.Players.LocalPlayer.Character:MoveTo(Vector3.new(263.467377, 6.9100132, 113.983261))
+end)
+
+JailtopTP.Name = "JailtopTP"
+JailtopTP.Parent = TeleportsScrollingFrame
+JailtopTP.BackgroundColor3 = Color3.new(0.552941, 0.552941, 0.552941)
+JailtopTP.BorderColor3 = Color3.new(0, 0, 0)
+JailtopTP.Position = UDim2.new(0.0474452525, 0, 0.124472573, 0)
+JailtopTP.Size = UDim2.new(0, 122, 0, 18)
+JailtopTP.Font = Enum.Font.SourceSans
+JailtopTP.Text = "Jailtop"
+JailtopTP.TextColor3 = Color3.new(0, 0, 0)
+JailtopTP.TextSize = 14
+JailtopTP.MouseButton1Click:Connect(function()
+	game.Players.LocalPlayer.Character:MoveTo(Vector3.new(105.896927, 34, 12.4054184))
+end)
+
+CourtyardTP.Name = "CourtyardTP"
+CourtyardTP.Parent = TeleportsScrollingFrame
+CourtyardTP.BackgroundColor3 = Color3.new(0.552941, 0.552941, 0.552941)
+CourtyardTP.BorderColor3 = Color3.new(0, 0, 0)
+CourtyardTP.Position = UDim2.new(0.0474452525, 0, 0.162447259, 0)
+CourtyardTP.Size = UDim2.new(0, 122, 0, 18)
+CourtyardTP.Font = Enum.Font.SourceSans
+CourtyardTP.Text = "Courtyard"
+CourtyardTP.TextColor3 = Color3.new(0, 0, 0)
+CourtyardTP.TextSize = 14
+CourtyardTP.MouseButton1Click:Connect(function()
+	game.Players.LocalPlayer.Character:MoveTo(Vector3.new(243.07106, 2.3200254, -80.9014206))
+end)
+
+LunchroomTP.Name = "LunchroomTP"
+LunchroomTP.Parent = TeleportsScrollingFrame
+LunchroomTP.BackgroundColor3 = Color3.new(0.552941, 0.552941, 0.552941)
+LunchroomTP.BorderColor3 = Color3.new(0, 0, 0)
+LunchroomTP.Position = UDim2.new(0.0474452525, 0, 0.200421944, 0)
+LunchroomTP.Size = UDim2.new(0, 122, 0, 18)
+LunchroomTP.Font = Enum.Font.SourceSans
+LunchroomTP.Text = "Lunchroom"
+LunchroomTP.TextColor3 = Color3.new(0, 0, 0)
+LunchroomTP.TextSize = 14
+LunchroomTP.MouseButton1Click:Connect(function()
+	game.Players.LocalPlayer.Character:MoveTo(Vector3.new(4.08053064, 4, -144.190895))
+end)
+
+KitchenTP.Name = "KitchenTP"
+KitchenTP.Parent = TeleportsScrollingFrame
+KitchenTP.BackgroundColor3 = Color3.new(0.552941, 0.552941, 0.552941)
+KitchenTP.BorderColor3 = Color3.new(0, 0, 0)
+KitchenTP.Position = UDim2.new(0.0510948859, 0, 0.23839663, 0)
+KitchenTP.Size = UDim2.new(0, 122, 0, 18)
+KitchenTP.Font = Enum.Font.SourceSans
+KitchenTP.Text = "Kitchen"
+KitchenTP.TextColor3 = Color3.new(0, 0, 0)
+KitchenTP.TextSize = 14
+KitchenTP.MouseButton1Click:Connect(function()
+	game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-49.4526825, 4, -122.646904))
+end)
+
+SecurityRoomTP.Name = "SecurityRoomTP"
+SecurityRoomTP.Parent = TeleportsScrollingFrame
+SecurityRoomTP.BackgroundColor3 = Color3.new(0.552941, 0.552941, 0.552941)
+SecurityRoomTP.BorderColor3 = Color3.new(0, 0, 0)
+SecurityRoomTP.Position = UDim2.new(0.0510948859, 0, 0.274261594, 0)
+SecurityRoomTP.Size = UDim2.new(0, 122, 0, 18)
+SecurityRoomTP.Font = Enum.Font.SourceSans
+SecurityRoomTP.Text = "Security Room"
+SecurityRoomTP.TextColor3 = Color3.new(0, 0, 0)
+SecurityRoomTP.TextSize = 14
+SecurityRoomTP.MouseButton1Click:Connect(function()
+	game.Players.LocalPlayer.Character:MoveTo(Vector3.new(66.4363861, 4, 4.59404564))
+end)
+
+CakeTP.Name = "CakeTP"
+CakeTP.Parent = TeleportsScrollingFrame
+CakeTP.BackgroundColor3 = Color3.new(0.552941, 0.552941, 0.552941)
+CakeTP.BorderColor3 = Color3.new(0, 0, 0)
+CakeTP.Position = UDim2.new(0.0510948859, 0, 0.310126573, 0)
+CakeTP.Size = UDim2.new(0, 122, 0, 18)
+CakeTP.Font = Enum.Font.SourceSans
+CakeTP.Text = "Cake"
+CakeTP.TextColor3 = Color3.new(0, 0, 0)
+CakeTP.TextSize = 14
+CakeTP.MouseButton1Click:Connect(function()
+	game.Players.LocalPlayer.Character:MoveTo(Vector3.new(108.500664, 4, -27.2045383))
+end)
+
+PrisonFrontTP.Name = "PrisonFrontTP"
+PrisonFrontTP.Parent = TeleportsScrollingFrame
+PrisonFrontTP.BackgroundColor3 = Color3.new(0.552941, 0.552941, 0.552941)
+PrisonFrontTP.BorderColor3 = Color3.new(0, 0, 0)
+PrisonFrontTP.Position = UDim2.new(0.0474452488, 0, 0.348101258, 0)
+PrisonFrontTP.Size = UDim2.new(0, 122, 0, 18)
+PrisonFrontTP.Font = Enum.Font.SourceSans
+PrisonFrontTP.Text = "Prison Front"
+PrisonFrontTP.TextColor3 = Color3.new(0, 0, 0)
+PrisonFrontTP.TextSize = 14
+PrisonFrontTP.MouseButton1Click:Connect(function()
+	game.Players.LocalPlayer.Character:MoveTo(Vector3.new(150.264099, 4, -230.023178))
+end)
+
+ATVTP.Name = "ATVTP"
+ATVTP.Parent = TeleportsScrollingFrame
+ATVTP.BackgroundColor3 = Color3.new(0.552941, 0.552941, 0.552941)
+ATVTP.BorderColor3 = Color3.new(0, 0, 0)
+ATVTP.Position = UDim2.new(0.0474452488, 0, 0.386075944, 0)
+ATVTP.Size = UDim2.new(0, 122, 0, 18)
+ATVTP.Font = Enum.Font.SourceSans
+ATVTP.Text = "ATVs"
+ATVTP.TextColor3 = Color3.new(0, 0, 0)
+ATVTP.TextSize = 14
+ATVTP.MouseButton1Click:Connect(function()
+	game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-2.77235317, 5.5, -279.359253))
+end)
+
+WatchTowerTP.Name = "WatchTowerTP"
+WatchTowerTP.Parent = TeleportsScrollingFrame
+WatchTowerTP.BackgroundColor3 = Color3.new(0.552941, 0.552941, 0.552941)
+WatchTowerTP.BorderColor3 = Color3.new(0, 0, 0)
+WatchTowerTP.Position = UDim2.new(0.0510948822, 0, 0.424050629, 0)
+WatchTowerTP.Size = UDim2.new(0, 122, 0, 18)
+WatchTowerTP.Font = Enum.Font.SourceSans
+WatchTowerTP.Text = "Watch Tower"
+WatchTowerTP.TextColor3 = Color3.new(0, 0, 0)
+WatchTowerTP.TextSize = 14
+WatchTowerTP.MouseButton1Click:Connect(function()
+	game.Players.LocalPlayer.Character:MoveTo(Vector3.new(178.239044, 44.9900742, -211.372543))
+end)
+
+WatchTower2TP.Name = "WatchTower2TP"
+WatchTower2TP.Parent = TeleportsScrollingFrame
+WatchTower2TP.BackgroundColor3 = Color3.new(0.552941, 0.552941, 0.552941)
+WatchTower2TP.BorderColor3 = Color3.new(0, 0, 0)
+WatchTower2TP.Position = UDim2.new(0.0474452451, 0, 0.462025315, 0)
+WatchTower2TP.Size = UDim2.new(0, 122, 0, 18)
+WatchTower2TP.Font = Enum.Font.SourceSans
+WatchTower2TP.Text = "Watch Tower 2"
+WatchTower2TP.TextColor3 = Color3.new(0, 0, 0)
+WatchTower2TP.TextSize = 14
+WatchTower2TP.MouseButton1Click:Connect(function()
+	game.Players.LocalPlayer.Character:MoveTo(Vector3.new(121.033882, 25.9895439, -325.773987))
+end)
+
+WaterfallTP.Name = "WaterfallTP"
+WaterfallTP.Parent = TeleportsScrollingFrame
+WaterfallTP.BackgroundColor3 = Color3.new(0.552941, 0.552941, 0.552941)
+WaterfallTP.BorderColor3 = Color3.new(0, 0, 0)
+WaterfallTP.Position = UDim2.new(0.0474452451, 0, 0.5, 0)
+WaterfallTP.Size = UDim2.new(0, 122, 0, 18)
+WaterfallTP.Font = Enum.Font.SourceSans
+WaterfallTP.Text = "Waterfall"
+WaterfallTP.TextColor3 = Color3.new(0, 0, 0)
+WaterfallTP.TextSize = 14
+WaterfallTP.MouseButton1Click:Connect(function()
+	game.Players.LocalPlayer.Character:MoveTo(Vector3.new(526.5802, 112.403442, -243.040665))
+end)
+
+CarSpawnerTP.Name = "CarSpawnerTP"
+CarSpawnerTP.Parent = TeleportsScrollingFrame
+CarSpawnerTP.BackgroundColor3 = Color3.new(0.552941, 0.552941, 0.552941)
+CarSpawnerTP.BorderColor3 = Color3.new(0, 0, 0)
+CarSpawnerTP.Position = UDim2.new(0.0474452451, 0, 0.537974656, 0)
+CarSpawnerTP.Size = UDim2.new(0, 122, 0, 18)
+CarSpawnerTP.Font = Enum.Font.SourceSans
+CarSpawnerTP.Text = "Car Spawn"
+CarSpawnerTP.TextColor3 = Color3.new(0, 0, 0)
+CarSpawnerTP.TextSize = 14
+CarSpawnerTP.MouseButton1Click:Connect(function()
+	game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-320.428406, -23.989994, -808.608337))
+end)
+
+MercenaryShedTP.Name = "MercenaryShedTP"
+MercenaryShedTP.Parent = TeleportsScrollingFrame
+MercenaryShedTP.BackgroundColor3 = Color3.new(0.552941, 0.552941, 0.552941)
+MercenaryShedTP.BorderColor3 = Color3.new(0, 0, 0)
+MercenaryShedTP.Position = UDim2.new(0.0474452451, 0, 0.575949311, 0)
+MercenaryShedTP.Size = UDim2.new(0, 122, 0, 18)
+MercenaryShedTP.Font = Enum.Font.SourceSans
+MercenaryShedTP.Text = "Mercenary Shed"
+MercenaryShedTP.TextColor3 = Color3.new(0, 0, 0)
+MercenaryShedTP.TextSize = 14
+MercenaryShedTP.MouseButton1Click:Connect(function()
+	game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-618.375488, -24.7882366, -333.008667))
+end)
