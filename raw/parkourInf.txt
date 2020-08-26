@@ -1,0 +1,18 @@
+game.StarterGui:SetCore("SendNotification", {
+     Title = "parkour";
+     Text = "parkour successfully executed. press 'x' after a jump to jump again";
+     Icon = "";
+     Duration = 5;
+     Button1 = "Okay";
+     }
+)
+
+local plr = game:GetService"Players".LocalPlayer
+local m = plr:GetMouse()
+m.KeyDown:connect(function(k)
+if k == "x" then
+game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+wait()
+game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Seated")
+end
+end)
