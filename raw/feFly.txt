@@ -9,7 +9,7 @@
 
 game.StarterGui:SetCore("SendNotification", {
      Title = "fly";
-     Text = "fly successfully executed. "E" to toggle fly";
+     Text = "fly successfully executed. 'E' to toggle fly";
      Icon = "";
      Duration = 5;
      Button1 = "Okay";
